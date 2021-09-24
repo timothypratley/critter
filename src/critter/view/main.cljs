@@ -33,7 +33,7 @@
     "+ Add app"]
    [:div {:style {:display "flex"}}
     (doall
-      (for [[actor-id app] (:apps model)]
+      (for [[actor-id app] (->> (:apps model) (sort-by :actor-id))]
         [:div {:key   actor-id
                :style {:order     0
                        :flex-grow 1
